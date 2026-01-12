@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: gamermatch-api
+  profiles:
+    active: ${APP_PROFILE:dev}
+
+---
+# CONFIGURACIÓN DEV (LOCAL)
+spring:
+  config:
+    activate:
+      on-profile: dev
+  datasource:
+    url: jdbc:h2:mem:gamermatchdb
+    username: sa
+    password:
+  h2:
+    console:
+      enabled: true
+  jpa:
+    hibernate:
+      ddl-auto: create-drop # Crea y borra la BD al reiniciar
+    show-sql: true
+
+---
+# CONFIGURACIÓN PROD (RAILWAY/NUBE)
+spring:
+  config:
+    activate:
+      on-profile: prod
+  datasource:
+    url: ${DB_URL}       # Variable de entorno de Railway
+    username: ${DB_USER} # Variable de entorno de Railway
+    password: ${DB_PASSWORD} # Variable de entorno de Railway
+  jpa:
+    hibernate:
+      ddl-auto: update # actualiza la estructura
+    show-sql: false
