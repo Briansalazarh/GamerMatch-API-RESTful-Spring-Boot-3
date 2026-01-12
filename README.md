@@ -21,7 +21,7 @@ API REST. El proyecto se enfoca en la gestión de jugadores y sus catálogos de 
 
 Tecnologías:
 
-Java 17 & Spring Boot 3
+Java 21 & Spring Boot 4
 
 Spring Data JPA & PostgreSQL
 
